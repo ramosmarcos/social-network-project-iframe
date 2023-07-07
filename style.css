@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(pacote/imagens/fundo-madeira.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+}
+
+main {
+    height: 100vh;
+    position: relative;
+}
+
+section#telefone {
+    height: 627px;
+    width: 311px;
+    background-color: blue;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: url(pacote/imagens/frame-iphone.png) no-repeat;
+}
+
+iframe#tela {
+    position: relative;
+    top: 80px;
+    left: 23px;
+    width: 266px;
+    height: 470px;
+}
+
+section#redes-sociais {
+    float: right;
+}
+
+section#redes-sociais img {
+    width: 50px;
+    height: 50px;
+    margin: 20px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.395);
+    display: block;
+    box-sizing: border-box;
+}
+
+section#redes-sociais img:hover {
+    border: 2px solid rgba(255, 255, 255, 0.676);
+    transform: scale(1.1) translate(-2px, -2px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.600);
+    transition: transform 0.1s;
+    transition: border 0.5s;
+}
+
+/* Caso adicionemos uma borda que circunda as imagens dos ícones do menu, mas que só é exibida e acionada por hover, ocorre que, quando a borda surge, os outros botões vizinhos se mexem... visto que a borda não faz parte do objeto... Eles se deslocam justamente por causa do surgimento da borda, que expande a respectiva caixa e empurra os outros ícones. 
+
+
+
+PROPRIEDADE BOX-SIZING:
+
+
+
+Essa movimentação dos ícones vizinhos, esse deslocamento, não é legal porque atrapalha a experiência da maioria dos usuários e deixa o efeito da nossa animação muito brusca.
+
+
+
+Para evitar esse deslocamento dos itens vizinhos ocasionado pelo surgimento da borda, dentro do seletor da imagem do ícone (objeto de recebe a borda) temos que utilizar a Propriedade de Estilo " box-sizing " com o valor " border-box ".
+
+
+
+Isso fará com que a borda faça parte do objeto, faça parte da caixa da imagem... Fazendo com que os itens vizinhos não se desloquem com o aparecimento da mesma.
+
+
+
+A propriedade box-sizing modifica a maneira de exibir o tamanho de uma caixa, por padrão o tamanho absoluto de uma caixa é calculado pelo 'tamanho definido' (width e height) + valor do 'padding' + valor da 'borda'. Isso muitas vezes pode gerar certa confusão na hora de alinharmos algumas caixas no nosso layout, porque temos sempre que considerar que a determinada caixa não terá como dimensão somente o width ou o height definido, mas também o padding e a borda... Fazendo uma soma de tudo isso... 
+
+
+
+Por isso a propriedade box-sizing é tão útil, pois permite que você escolha como as suas caixas serão medidas dentro do documento. Dessa forma não precisamos perder tempo fazendo cálculos para determinar o tamanho final dos boxes dos nossos elementos quando declaramos as propriedades padding e border. Essa propriedade aceita os seguintes valores:
+
+
+
+content-box - Esse é o valor padrão, gera o comportamento padrão descrito anteriormente. As propriedades de largura (width) e altura (height) são medidas incluindo só o conteúdo, mas não o padding e o border. (forma de medida absoluta = width/height + padding + border)
+
+
+
+border-box - O cálculo padrão que conhecemos para a medida da caixa é alterado, fazendo com que o navegador passe a considerar as propriedades de largura (width) e altura (height) do elemento INCLUINDO o 'padding' e o 'border'. (forma de medida absoluta = width/height) 
+
+
+
+padding-box - O cálculo padrão que conhecemos para a medida da caixa é alterado, fazendo com que o navegador passe a considerar as propriedades de largura (width) e altura (height) do elemento INCLUINDO o 'padding' mas não incluindo o 'border'. (forma de medida absoluta = width/height + border) 
+
+
+
+Use a declaração box-sizing: border-box em todos os seus projetos. Ela tornará seu trabalho mais produtivo. Permitindo usar um Box Model (Modelo de Caixas) "corrigido". 
+
+
+
+Inclusive você pode inserir essa declaração no SELETOR GLOBAL do seu projeto, dessa forma todas as caixas da sua página terão como medida absoluta somente o width e height (padding e border inclusos).
+
+
+
+Obs.: Mas esteja ciente de que ao definir o Box Model Corrigido em um projeto existente é quase certo que o layout quebrará a menos que você se disponha a encarar o trabalhão de recalcular as dimensões dos boxes do site
+
+
+
+No do menu desse projeto, uma outra maneira de evitar esse deslocamento dos itens vizinhos, sem utilizar o "box-sizing", seria criando a borda da imagem com um outline ao invés de border. Outline não influencia no tamanho total do elemento e portanto não iria empurrar os outros itens. 
+
+
+
+Entretanto a configuração box-sizing é boa para outros momentos também, onde algumas declarações CSS podem fazer um elemento "crescer" e acabar quebrando um pouco o design da página.*/
